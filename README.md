@@ -210,11 +210,7 @@ This project is developed for educational purposes and portfolio demonstration.
 
 *Built with ❤️ using React, TypeScript, and Tailwind CSS*
 #
-## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
 # Vikas Blog Application
 
@@ -410,8 +406,6 @@ Full TypeScript implementation with:
 - Dark mode support
 
 ## 📄 License
-
-This project is developed for educational purposes and portfolio demonstration.
 
 ## 👨‍💻 Developer
 
