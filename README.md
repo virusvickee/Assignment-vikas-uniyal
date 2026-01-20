@@ -237,16 +237,6 @@ This project is developed for educational purposes and portfolio demonstration.
 Takes two numbers and returns the sum.
 
 
-## Appendix
-
-Any additional information goes here
-
-
-## Authors
-
-- [@octokatherine](https://www.github.com/octokatherine)
-
-
 ## Badges
 
 Add badges from somewhere like: [shields.io](https://shields.io/)
