@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createBlog } from "@/api/blogs";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+
+const CATEGORY_OPTIONS = ["FINANCE", "TECH", "CAREER", "EDUCATION", "REGULATIONS", "LIFESTYLE"];
 
 /**
  * CreateBlogDialog Component
@@ -69,6 +71,9 @@ export function CreateBlogDialog() {
             <DialogContent className="sm:max-w-[500px]">
                 <DialogHeader>
                     <DialogTitle>Create New Blog</DialogTitle>
+                    <DialogDescription>
+                        Fill out the form below to create a new blog post.
+                    </DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleSubmit} className="grid gap-4 py-4">
                     {/* Blog Title Input */}
@@ -76,10 +81,29 @@ export function CreateBlogDialog() {
                         <Label htmlFor="title">Title</Label>
                         <Input id="title" name="title" value={formData.title} onChange={handleChange} required />
                     </div>
-                    {/* Categories Input - expects comma separated values */}
+                    {/* Categories Input - select options */}
                     <div className="grid gap-2">
-                        <Label htmlFor="category">Categories (comma separated)</Label>
-                        <Input id="category" name="category" value={formData.category} onChange={handleChange} placeholder="TECH, FINANCE" required />
+                        <Label htmlFor="category">Categories</Label>
+                        <div className="flex flex-wrap gap-2">
+                            {CATEGORY_OPTIONS.map(cat => (
+                                <label key={cat} className="flex items-center space-x-1">
+                                    <input 
+                                        type="checkbox" 
+                                        value={cat}
+                                        checked={formData.category.includes(cat)}
+                                        onChange={(e) => {
+                                            const checked = e.target.checked;
+                                            const currentCategories = formData.category ? formData.category.split(",").map(c => c.trim()) : [];
+                                            const newCategories = checked 
+                                                ? [...currentCategories, cat]
+                                                : currentCategories.filter(c => c !== cat);
+                                            setFormData(prev => ({ ...prev, category: newCategories.join(", ") }));
+                                        }}
+                                    />
+                                    <span className="text-sm">{cat}</span>
+                                </label>
+                            ))}
+                        </div>
                     </div>
                     {/* Cover Image URL Input */}
                     <div className="grid gap-2">

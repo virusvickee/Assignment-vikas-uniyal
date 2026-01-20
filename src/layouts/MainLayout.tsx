@@ -10,7 +10,7 @@ export function MainLayout() {
     return (
         <div className="h-screen w-full bg-background flex flex-col">
             <header className="border-b p-4 flex items-center justify-between">
-                <h1 className="text-2xl font-bold">CA Monk Blog</h1>
+                <h1 className="text-2xl font-bold">Vikas Blog</h1>
                 <CreateBlogDialog />
             </header>
             <main className="flex-1 overflow-hidden">
